@@ -1,3 +1,4 @@
+// the deck array with the images linked
 const deck = [
   { name: 'Ace', Suit: 'Hearts', value: '11', image: 'images/ace_of_hearts' },
   { name: 'Ace', Suit: 'Clubs', value: '11', image: 'images/ace_of_clubs' },
@@ -120,11 +121,25 @@ const deck = [
   }
 ]
 
+// function to shuffle the deck *Fisher-Yates algo*
 const shuffleDeck = (deck) => {
   const shuffled = [...deck]
   for (let i = shuffleDeck.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
     ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
   }
-  return
+  return shuffled
+}
+
+//function to calcluate the score
+const calcScore = (hand) => {
+  let score = hand.redcuce((total, card) => total + card.value, 0)
+  const aces = hand.filter((card) => card.name === 'Ace').lenth // check if the hand has aces
+
+  while (score > 21 && aces > 0) {
+    score -= 10
+    aces--
+  }
+  // this will loop through until the hand has no aces and will adjust the score depending if the player busts or not.*if the total value of the deck is larger than 21 it will count the aces as 1 and if not it will count it ast 11*
+  return score
 }
