@@ -119,3 +119,12 @@ const deck = [
     image: 'images/queen_of_spades2'
   }
 ]
+
+const shuffleDeck = (deck) => {
+  const shuffled = [...deck]
+  for (let i = shuffleDeck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return
+}
