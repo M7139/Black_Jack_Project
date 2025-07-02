@@ -133,8 +133,9 @@ const shuffleDeck = (deck) => {
 
 //function to calcluate the score
 const calcScore = (hand) => {
-  let score = hand.redcuce((total, card) => total + card.value, 0)
-  const aces = hand.filter((card) => card.name === 'Ace').lenth // check if the hand has aces
+  let score = hand.redcuce((accumulator, card) => accumulator + card.value, 0)
+
+  const aces = hand.filter((card) => card.name === 'Ace').length // check if the hand has aces
 
   while (score > 21 && aces > 0) {
     score -= 10
