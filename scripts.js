@@ -184,8 +184,8 @@ let canHit = true
 
 // The DOM elements
 const elements = {
-  dealerCards: document.getElementById('dealerCards'),
-  playerCards: document.getElementById('yourCards'),
+  dealerCards: document.querySelector('.dealerCards'),
+  playerCards: document.querySelector('.playerCards'),
   dealerScore: document.getElementById('dealerSum'),
   playerScore: document.getElementById('yourSum'),
   message: document.getElementById('results'),
@@ -204,7 +204,7 @@ window.onload = function () {
 // function to shuffle the deck *Fisher-Yates algo*
 const shuffleDeck = (deck) => {
   const shuffled = [...deck]
-  for (let i = shuffleDeck.length - 1; i > 0; i--) {
+  for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
     ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
   }
