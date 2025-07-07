@@ -213,6 +213,7 @@ const startGame = () => {
 
   // Deal initial cards
   dealerHand.push(currentDeck.pop())
+  dealerHand.push(currentDeck.pop())
   playerHand.push(currentDeck.pop())
   playerHand.push(currentDeck.pop())
 
@@ -225,12 +226,12 @@ const renderGame = () => {
   elements.playerCards.innerHTML = ''
 
   // Render dealer cards
-  elements.dealerCards.appendChild(createCardImg(dealerHand[0]))
-  // if (gameOver) {
-  //   for (let i = 1; i < dealerHand.length; i++) {
-  //     elements.dealerCards.appendChild(createCardImg(dealerHand[i]))
-  //   }
-  // }
+   dealerHand.forEach((card,index) => {
+    // only hide the first card from the dealer hand if the game is not over
+    isHidden =  !gameOver && index === 0
+    // append image and pass isHidden value
+    elements.dealerCards.appendChild(createCardImg(card,isHidden))
+  })
 
   // Render player cards
   playerHand.forEach((card) => {
@@ -258,13 +259,14 @@ const calcScore = (hand) => {
   let score = hand.reduce((total, card) => total + card.value, 0)
   const aces = hand.filter((card) => card.name === 'Ace').length
 
+  // this will loop through until the hand has no aces and will adjust the score depending if the player busts or not.
+  // *if the total value of the deck is larger than 21 it will count the aces as 1 and if not it will count it ast 11*
   while (score > 21 && aces > 0) {
     score -= 10
     aces--
   }
   return score
 }
-// this will loop through until the hand has no aces and will adjust the score depending if the player busts or not.*if the total value of the deck is larger than 21 it will count the aces as 1 and if not it will count it ast 11*
 
 // function to creat the card image
 const createCardImg = (card, hidden = false) => {
