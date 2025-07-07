@@ -121,6 +121,31 @@ const deck = [
   }
 ]
 
+let currentDeck = []
+let dealerHand = []
+let playerHand = []
+let gameOver = false
+let canHit = true
+
+// The DOM elements
+const elements = {
+  dealerCards: document.getElementById('dealerCards'),
+  playerCards: document.getElementById('yourCards'),
+  dealerScore: document.getElementById('dealerSum'),
+  playerScore: document.getElementById('yourSum'),
+  message: document.getElementById('results'),
+  hitBtn: document.getElementById('hit'),
+  standBtn: document.getElementById('stay'),
+  hiddenCard: document.getElementById('hidden')
+}
+
+// function to start the game
+window.onload = function () {
+  startGame()
+  elements.hitBtn.addEventListener('click', hit)
+  elements.standBtn.addEventListener('click', stand)
+}
+
 // function to shuffle the deck *Fisher-Yates algo*
 const shuffleDeck = (deck) => {
   const shuffled = [...deck]
@@ -133,7 +158,7 @@ const shuffleDeck = (deck) => {
 
 //function to calcluate the score
 const calcScore = (hand) => {
-  let score = hand.redcuce((accumulator, card) => accumulator + card.value, 0)
+  let score = hand.reduce((accumulator, card) => accumulator + card.value, 0)
 
   const aces = hand.filter((card) => card.name === 'Ace').length // check if the hand has aces
 
