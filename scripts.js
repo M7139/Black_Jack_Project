@@ -139,7 +139,7 @@ const elements = {
   hiddenCard: document.getElementById('hidden')
 }
 
-// function to start the game
+// function to initialize the game
 window.onload = function () {
   startGame()
   elements.hitBtn.addEventListener('click', hit)
@@ -168,4 +168,29 @@ const calcScore = (hand) => {
   }
   // this will loop through until the hand has no aces and will adjust the score depending if the player busts or not.*if the total value of the deck is larger than 21 it will count the aces as 1 and if not it will count it ast 11*
   return score
+}
+
+// function to creat the card image
+const createCardImg = (card, hidden = false) => {
+  const img = document.createElement('img')
+  img.src = hidden ? 'images/card_back.png' : card.image
+  img.className = 'card'
+  img.alt = `${card.name} of ${card.suit}`
+  return img
+}
+
+// functoin to start the game
+const startGame = () => {
+  currentDeck = shuffleDeck(deck)
+  dealerHand = []
+  playerHand = []
+  gameOver = false
+  canHit = true
+
+  // Deal initial cards
+  dealerHand.push(currentDeck.pop())
+  playerHand.push(currentDeck.pop())
+  playerHand.push(currentDeck.pop())
+
+  renderGame()
 }
