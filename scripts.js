@@ -190,7 +190,9 @@ const elements = {
   playerScore: document.getElementById('playerSum'),
   message: document.getElementById('results'),
   hitBtn: document.getElementById('hit'),
-  standBtn: document.getElementById('stay')
+  standBtn: document.getElementById('stay'),
+  restartBtn: document.getElementById('restart')
+
 }
 
 // function to initialize the game
@@ -198,6 +200,8 @@ window.onload = function () {
   // add click event to action buttons
   elements.hitBtn.addEventListener('click', hit)
   elements.standBtn.addEventListener('click', stand)
+  elements.restartBtn.addEventListener('click', startGame)
+
 
   // call start game method
   startGame()
@@ -210,6 +214,7 @@ const startGame = () => {
   playerHand = []
   gameOver = false
   canHit = true
+  elements.message.textContent = ''
 
   // Deal initial cards
   dealerHand.push(currentDeck.pop())
