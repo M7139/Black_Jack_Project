@@ -8,7 +8,7 @@ const deck = [
     value: 11,
     image: 'images/ace_of_diamonds.png'
   },
-  { name: 'Ace', suit: 'Spades', value: 11, image: 'images/ace_of_spades.png' },
+  { name: 'Ace', suit: 'Spades', value: 11, image: 'images/ace_of_spades2.png' },
 
   { name: '2', suit: 'Hearts', value: 2, image: 'images/2_of_hearts.png' },
   { name: '2', suit: 'Clubs', value: 2, image: 'images/2_of_clubs.png' },
