@@ -1,123 +1,178 @@
 // the deck array with the images linked
 const deck = [
-  { name: 'Ace', Suit: 'Hearts', value: '11', image: 'images/ace_of_hearts' },
-  { name: 'Ace', Suit: 'Clubs', value: '11', image: 'images/ace_of_clubs' },
+  { name: 'Ace', suit: 'Hearts', value: 11, image: 'images/ace_of_hearts.png' },
+  { name: 'Ace', suit: 'Clubs', value: 11, image: 'images/ace_of_clubs.png' },
   {
     name: 'Ace',
-    Suit: 'Diamonds',
-    value: '11',
-    image: 'images/ace_of_diamonds'
+    suit: 'Diamonds',
+    value: 11,
+    image: 'images/ace_of_diamonds.png'
   },
-  { name: 'Ace', Suit: 'Spades', value: '11', image: 'images/ace_of_spades' },
+  { name: 'Ace', suit: 'Spades', value: 11, image: 'images/ace_of_spades.png' },
 
-  { name: '2', Suit: 'Hearts', value: '2', image: 'images/2_of_hearts' },
-  { name: '2', Suit: 'Clubs', value: '2', image: 'images/2_of_clubs' },
-  { name: '2', Suit: 'Diamonds', value: '2', image: 'images/2_of_diamonds' },
-  { name: '2', Suit: 'spades', value: '2', image: 'images/2_of_spades' },
+  { name: '2', suit: 'Hearts', value: 2, image: 'images/2_of_hearts.png' },
+  { name: '2', suit: 'Clubs', value: 2, image: 'images/2_of_clubs.png' },
+  {
+    name: '2',
+    suit: 'Diamonds',
+    value: 2,
+    image: 'images/2_of_diamonds.png'
+  },
+  { name: '2', suit: 'spades', value: 2, image: 'images/2_of_spades.png' },
 
-  { name: '3', Suit: 'Hearts', value: '3', image: 'images/3_of_hearts' },
-  { name: '3', Suit: 'Clubs', value: '3', image: 'images/3_of_clubs' },
-  { name: '3', Suit: 'Diamonds', value: '3', image: 'images/3_of_diamonds' },
-  { name: '3', Suit: 'spades', value: '3', image: 'images/3_of_spades' },
+  { name: '3', suit: 'Hearts', value: 3, image: 'images/3_of_hearts.png' },
+  { name: '3', suit: 'Clubs', value: 3, image: 'images/3_of_clubs.png' },
+  {
+    name: '3',
+    suit: 'Diamonds',
+    value: 3,
+    image: 'images/3_of_diamonds.png'
+  },
+  { name: '3', suit: 'spades', value: 3, image: 'images/3_of_spades.png' },
 
-  { name: '4', Suit: 'Hearts', value: '4', image: 'images/4_of_hearts' },
-  { name: '4', Suit: 'Clubs', value: '4', image: 'images/4_of_clubs' },
-  { name: '4', Suit: 'Diamonds', value: '4', image: 'images/4_of_diamonds' },
-  { name: '4', Suit: 'spades', value: '4', image: 'images/4_of_spades' },
+  { name: '4', suit: 'Hearts', value: 4, image: 'images/4_of_hearts.png' },
+  { name: '4', suit: 'Clubs', value: 4, image: 'images/4_of_clubs.png' },
+  {
+    name: '4',
+    suit: 'Diamonds',
+    value: 4,
+    image: 'images/4_of_diamonds.png'
+  },
+  { name: '4', suit: 'spades', value: 4, image: 'images/4_of_spades.png' },
 
-  { name: '5', Suit: 'Hearts', value: '5', image: 'images/5_of_hearts' },
-  { name: '5', Suit: 'Clubs', value: '5', image: 'images/5_of_clubs' },
-  { name: '5', Suit: 'Diamonds', value: '5', image: 'images/5_of_diamonds' },
-  { name: '5', Suit: 'spades', value: '5', image: 'images/5_of_spades' },
+  { name: '5', suit: 'Hearts', value: 5, image: 'images/5_of_hearts.png' },
+  { name: '5', suit: 'Clubs', value: 5, image: 'images/5_of_clubs.png' },
+  {
+    name: '5',
+    suit: 'Diamonds',
+    value: 5,
+    image: 'images/5_of_diamonds.png'
+  },
+  { name: '5', suit: 'spades', value: 5, image: 'images/5_of_spades.png' },
 
-  { name: '6', Suit: 'Hearts', value: '6', image: 'images/6_of_hearts' },
-  { name: '6', Suit: 'Clubs', value: '6', image: 'images/6_of_clubs' },
-  { name: '6', Suit: 'Diamonds', value: '6', image: 'images/6_of_diamonds' },
-  { name: '6', Suit: 'spades', value: '6', image: 'images/6_of_spades' },
+  { name: '6', suit: 'Hearts', value: 6, image: 'images/6_of_hearts.png' },
+  { name: '6', suit: 'Clubs', value: 6, image: 'images/6_of_clubs.png' },
+  {
+    name: '6',
+    suit: 'Diamonds',
+    value: 6,
+    image: 'images/6_of_diamonds.png'
+  },
+  { name: '6', suit: 'spades', value: 6, image: 'images/6_of_spades.png' },
 
-  { name: '7', Suit: 'Hearts', value: '7', image: 'images/7_of_hearts' },
-  { name: '7', Suit: 'Clubs', value: '7', image: 'images/7_of_clubs' },
-  { name: '7', Suit: 'Diamonds', value: '7', image: 'images/7_of_diamonds' },
-  { name: '7', Suit: 'spades', value: '7', image: 'images/7_of_spades' },
+  { name: '7', suit: 'Hearts', value: 7, image: 'images/7_of_hearts.png' },
+  { name: '7', suit: 'Clubs', value: 7, image: 'images/7_of_clubs.png' },
+  {
+    name: '7',
+    suit: 'Diamonds',
+    value: 7,
+    image: 'images/7_of_diamonds.png'
+  },
+  { name: '7', suit: 'spades', value: 7, image: 'images/7_of_spades.png' },
 
-  { name: '8', Suit: 'Hearts', value: '8', image: 'images/8_of_hearts' },
-  { name: '8', Suit: 'Clubs', value: '8', image: 'images/8_of_clubs' },
-  { name: '8', Suit: 'Diamonds', value: '8', image: 'images/8_of_diamonds' },
-  { name: '8', Suit: 'spades', value: '8', image: 'images/8_of_spades' },
+  { name: '8', suit: 'Hearts', value: 8, image: 'images/8_of_hearts.png' },
+  { name: '8', suit: 'Clubs', value: 8, image: 'images/8_of_clubs.png' },
+  {
+    name: '8',
+    suit: 'Diamonds',
+    value: 8,
+    image: 'images/8_of_diamonds.png'
+  },
+  { name: '8', suit: 'spades', value: 8, image: 'images/8_of_spades.png' },
 
-  { name: '9', Suit: 'Hearts', value: '9', image: 'images/9_of_hearts' },
-  { name: '9', Suit: 'Clubs', value: '9', image: 'images/9_of_clubs' },
-  { name: '9', Suit: 'Diamonds', value: '9', image: 'images/9_of_diamonds' },
-  { name: '9', Suit: 'spades', value: '9', image: 'images/9_of_spades' },
+  { name: '9', suit: 'Hearts', value: 9, image: 'images/9_of_hearts.png' },
+  { name: '9', suit: 'Clubs', value: 9, image: 'images/9_of_clubs.png' },
+  {
+    name: '9',
+    suit: 'Diamonds',
+    value: 9,
+    image: 'images/9_of_diamonds.png'
+  },
+  { name: '9', suit: 'spades', value: 9, image: 'images/9_of_spades.png' },
 
-  { name: '10', Suit: 'Hearts', value: '10', image: 'images/10_of_hearts' },
-  { name: '10', Suit: 'Clubs', value: '10', image: 'images/10_of_clubs' },
-  { name: '10', Suit: 'Diamonds', value: '10', image: 'images/10_of_diamonds' },
-  { name: '10', Suit: 'spades', value: '10', image: 'images/10_of_spades' },
+  { name: '10', suit: 'Hearts', value: 10, image: 'images/10_of_hearts.png' },
+  { name: '10', suit: 'Clubs', value: 10, image: 'images/10_of_clubs.png' },
+  {
+    name: '10',
+    suit: 'Diamonds',
+    value: 10,
+    image: 'images/10_of_diamonds.png'
+  },
+  { name: 10, suit: 'spades', value: '10', image: 'images/10_of_spades.png' },
 
   {
     name: 'Jack',
-    Suit: 'Hearts',
-    value: '10',
-    image: 'images/jack_of_hearts2'
-  },
-  { name: 'Jack', Suit: 'Clubs', value: '10', image: 'images/jack_of_clubs2' },
-  {
-    name: 'Jack',
-    Suit: 'Diamonds',
-    value: '10',
-    image: 'images/jack_of_diamonds2'
+    suit: 'Hearts',
+    value: 10,
+    image: 'images/jack_of_hearts2.png'
   },
   {
     name: 'Jack',
-    Suit: 'spades',
-    value: '10',
-    image: 'images/king_of_spades2'
+    suit: 'Clubs',
+    value: 10,
+    image: 'images/jack_of_clubs2.png'
+  },
+  {
+    name: 'Jack',
+    suit: 'Diamonds',
+    value: 10,
+    image: 'images/jack_of_diamonds2.png'
+  },
+  {
+    name: 'Jack',
+    suit: 'spades',
+    value: 10,
+    image: 'images/king_of_spades2.png'
   },
 
   {
     name: 'King',
-    Suit: 'Hearts',
-    value: '10',
-    image: 'images/king_of_hearts2'
-  },
-  { name: 'King', Suit: 'Clubs', value: '10', image: 'images/king_of_clubs2' },
-  {
-    name: 'King',
-    Suit: 'Diamonds',
-    value: '10',
-    image: 'images/king_of_diamonds2'
+    suit: 'Hearts',
+    value: 10,
+    image: 'images/king_of_hearts2.png'
   },
   {
     name: 'King',
-    Suit: 'spades',
-    value: '10',
-    image: 'images/King_of_spades2'
+    suit: 'Clubs',
+    value: 10,
+    image: 'images/king_of_clubs2.png'
+  },
+  {
+    name: 'King',
+    suit: 'Diamonds',
+    value: 10,
+    image: 'images/king_of_diamonds2.png'
+  },
+  {
+    name: 'King',
+    suit: 'spades',
+    value: 10,
+    image: 'images/King_of_spades2.png'
   },
 
   {
     name: 'Queen',
-    Suit: 'Hearts',
-    value: '10',
-    image: 'images/queen_of_hearts2'
+    suit: 'Hearts',
+    value: 10,
+    image: 'images/queen_of_hearts2.png'
   },
   {
     name: 'Queen',
-    Suit: 'Clubs',
-    value: '10',
-    image: 'images/queen_of_clubs2'
+    suit: 'Clubs',
+    value: 10,
+    image: 'images/queen_of_clubs2.png'
   },
   {
     name: 'Queen',
-    Suit: 'Diamonds',
-    value: '10',
-    image: 'images/queen_of_diamonds2'
+    suit: 'Diamonds',
+    value: 10,
+    image: 'images/queen_of_diamonds2.png'
   },
   {
     name: 'Queen',
-    Suit: 'spades',
-    value: '10',
-    image: 'images/queen_of_spades2'
+    suit: 'spades',
+    value: 10,
+    image: 'images/queen_of_spades2.png'
   }
 ]
 
@@ -251,7 +306,7 @@ const stand = () => {
       : dealerScore > 21
       ? 'Dealer busted! You win!'
       : playerScore === dealerScore
-      ? "Push! It's a tie!"
+      ? "Push! It'suit a tie!"
       : playerScore > dealerScore
       ? 'You win!'
       : 'You lose!'

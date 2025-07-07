@@ -5,28 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
-    <title>Black Jack Game Page</title>
+    <title>Blackjack Game</title>
   </head>
   <body>
-    <div class="dealerSection">
-      <div class="dealerCards">
-        <h3>Dealer Cards:</h3>
+    <div class="gameContainer">
+      <h1>Blackjack</h1>
+
+      <div class="dealerSection">
+        <div class="dealerCards">
+          <h3>Dealer Cards:</h3>
+          <div id="dealerCards" class="cardsContainer"></div>
+          <div class="score">Score: <span id="dealerSum">?</span></div>
+        </div>
       </div>
 
       <div class="playerSection">
         <div class="playerCards">
           <h3>Your Cards:</h3>
-
+          <div id="yourCards" class="cardsContainer"></div>
           <div class="score">Score: <span id="yourSum">0</span></div>
         </div>
       </div>
+
+      <div class="buttons">
+        <button id="hit">Hit</button>
+        <button id="stay">Stay</button>
+      </div>
+
+      <div id="results" class="message"></div>
     </div>
 
-    <div class="buttons">
-      <button id="stay">Stay</button>
-      <button id="hit">Hit</button>
-    </div>
-
-    <div class="message" id="results"></div>
+    <img id="hidden" src="" style="display: none" alt="Hidden card" />
   </body>
 </html>
