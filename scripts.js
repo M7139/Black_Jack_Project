@@ -277,8 +277,6 @@ const calcScore = (hand) => {
 const createCardImg = (card, hidden = false) => {
   const img = document.createElement('img')
   img.src = hidden ? 'images/card_back.png' : card.image
-  img.className = 'card'
-  img.alt = `${card.name} of ${card.suit}`
   return img
 }
 
