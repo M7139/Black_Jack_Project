@@ -194,3 +194,39 @@ const startGame = () => {
 
   renderGame()
 }
+
+const renderGame = () => {
+  // Clear previous cards
+  elements.dealerCards.innerHTML = '<h3>Dealer Cards:</h3>'
+  elements.playerCards.innerHTML = '<h3>Your Cards:</h3>'
+
+  // Render dealer cards
+  elements.dealerCards.appendChild(createCardImg(dealerHand[0], !gameOver))
+  if (gameOver) {
+    for (let i = 1; i < dealerHand.length; i++) {
+      elements.dealerCards.appendChild(createCardImg(dealerHand[i]))
+    }
+  }
+
+  // Render player cards
+  playerHand.forEach((card) => {
+    elements.playerCards.appendChild(createCardImg(card))
+  })
+
+  // Update scores
+  elements.dealerScore.textContent = gameOver ? calcScore(dealerHand) : '?'
+  elements.playerScore.textContent = calcScore(playerHand)
+  elements.hitBtn.disabled = !canHit || gameOver
+}
+
+// This function lets the player Hits
+const hit = () => {
+  if (!canHit || gameOver) return
+
+  playerHand.push(currentDeck.pop())
+  if (calcScore(playerHand) > 21) {
+    canHit = false
+    stand()
+  }
+  renderGame()
+}
