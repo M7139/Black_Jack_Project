@@ -213,14 +213,15 @@ const shuffleDeck = (deck) => {
 
 //function to calcluate the score
 const calcScore = (hand) => {
-  let score = hand.reduce((accumulator, card) => accumulator + card.value, 0)
-
-  const aces = hand.filter((card) => card.name === 'Ace').length // check if the hand has aces
+  let score = hand.reduce((total, card) => total + card.value, 0);
+  const aces = hand.filter(card => card.name === 'Ace').length;
 
   while (score > 21 && aces > 0) {
-    score -= 10
-    aces--
+    score -= 10;
+    aces--;
   }
+  return score;
+};
   // this will loop through until the hand has no aces and will adjust the score depending if the player busts or not.*if the total value of the deck is larger than 21 it will count the aces as 1 and if not it will count it ast 11*
   return score
 }
