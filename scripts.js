@@ -230,3 +230,31 @@ const hit = () => {
   }
   renderGame()
 }
+
+// this function lets the player stand and will make the dealer draw until score is =>17 and will determine the winner
+const stand = () => {
+  if (gameOver) return
+
+  gameOver = true
+  canHit = false
+
+  while (calcScore(dealerHand) < 17) {
+    dealerHand.push(currentDeck.pop())
+  }
+
+  const playerScore = calcScore(playerHand)
+  const dealerScore = calcScore(dealerHand)
+
+  elements.message.textContent =
+    playerScore > 21
+      ? 'You busted! Dealer wins'
+      : dealerScore > 21
+      ? 'Dealer busted! You win!'
+      : playerScore === dealerScore
+      ? "Push! It's a tie!"
+      : playerScore > dealerScore
+      ? 'You win!'
+      : 'You lose!'
+
+  renderGame()
+}
