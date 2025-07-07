@@ -1,12 +1,45 @@
-body {
-  background-color: grey;
+body{
+  background-image: url("images/poker-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
 }
+
+
+h1, h3, .score, #playerSum, #dealerSum, #results {
+  margin-bottom: 1rem;
+  color: #f9ca24;
+  font-weight: bold;
+}
+
 img {
-  height: 130px;
-  width: 100px;
+  height: 230px;
+  width: 180px;
+  margin: 5px;
 }
 
 .buttons {
   margin-top: 20px;
 }
+
+  /* Button Styles */
+  button {
+    background: #f9ca24;
+    border: none;
+    color: #06402b;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    margin: 0.5rem;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #f0932b;
+}
+
+
+
+
