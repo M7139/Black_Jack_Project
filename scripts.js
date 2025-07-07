@@ -98,7 +98,7 @@ const deck = [
     value: 10,
     image: 'images/10_of_diamonds.png'
   },
-  { name: 10, suit: 'spades', value: '10', image: 'images/10_of_spades.png' },
+  { name: '10', suit: 'spades', value: 10, image: 'images/10_of_spades.png' },
 
   {
     name: 'Jack',
@@ -184,58 +184,26 @@ let canHit = true
 
 // The DOM elements
 const elements = {
-  dealerCards: document.querySelector('.dealerCards'),
-  playerCards: document.querySelector('.playerCards'),
+  dealerCards: document.getElementById('dealerCards'),
+  playerCards: document.getElementById('playerCards'),
   dealerScore: document.getElementById('dealerSum'),
-  playerScore: document.getElementById('yourSum'),
+  playerScore: document.getElementById('playerSum'),
   message: document.getElementById('results'),
   hitBtn: document.getElementById('hit'),
-  standBtn: document.getElementById('stay'),
-  hiddenCard: document.getElementById('hidden')
+  standBtn: document.getElementById('stay')
 }
 
 // function to initialize the game
 window.onload = function () {
-  startGame()
+  // add click event to action buttons
   elements.hitBtn.addEventListener('click', hit)
   elements.standBtn.addEventListener('click', stand)
+
+  // call start game method
+  startGame()
 }
 
-// function to shuffle the deck *Fisher-Yates algo*
-const shuffleDeck = (deck) => {
-  const shuffled = [...deck]
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-  }
-  return shuffled
-}
-
-//function to calcluate the score
-const calcScore = (hand) => {
-  let score = hand.reduce((total, card) => total + card.value, 0);
-  const aces = hand.filter(card => card.name === 'Ace').length;
-
-  while (score > 21 && aces > 0) {
-    score -= 10;
-    aces--;
-  }
-  return score;
-};
-  // this will loop through until the hand has no aces and will adjust the score depending if the player busts or not.*if the total value of the deck is larger than 21 it will count the aces as 1 and if not it will count it ast 11*
-  return score
-}
-
-// function to creat the card image
-const createCardImg = (card, hidden = false) => {
-  const img = document.createElement('img')
-  img.src = hidden ? 'images/card_back.png' : card.image
-  img.className = 'card'
-  img.alt = `${card.name} of ${card.suit}`
-  return img
-}
-
-// functoin to start the game
+// function to start the game
 const startGame = () => {
   currentDeck = shuffleDeck(deck)
   dealerHand = []
@@ -253,16 +221,16 @@ const startGame = () => {
 
 const renderGame = () => {
   // Clear previous cards
-  elements.dealerCards.innerHTML = '<h3>Dealer Cards:</h3>'
-  elements.playerCards.innerHTML = '<h3>Your Cards:</h3>'
+  elements.dealerCards.innerHTML = ''
+  elements.playerCards.innerHTML = ''
 
   // Render dealer cards
-  elements.dealerCards.appendChild(createCardImg(dealerHand[0], !gameOver))
-  if (gameOver) {
-    for (let i = 1; i < dealerHand.length; i++) {
-      elements.dealerCards.appendChild(createCardImg(dealerHand[i]))
-    }
-  }
+  elements.dealerCards.appendChild(createCardImg(dealerHand[0]))
+  // if (gameOver) {
+  //   for (let i = 1; i < dealerHand.length; i++) {
+  //     elements.dealerCards.appendChild(createCardImg(dealerHand[i]))
+  //   }
+  // }
 
   // Render player cards
   playerHand.forEach((card) => {
@@ -273,6 +241,38 @@ const renderGame = () => {
   elements.dealerScore.textContent = gameOver ? calcScore(dealerHand) : '?'
   elements.playerScore.textContent = calcScore(playerHand)
   elements.hitBtn.disabled = !canHit || gameOver
+}
+
+// function to shuffle the deck *Fisher-Yates algo*
+const shuffleDeck = (deck) => {
+  const shuffled = [...deck]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
+}
+
+//function to calcluate the score
+const calcScore = (hand) => {
+  let score = hand.reduce((total, card) => total + card.value, 0)
+  const aces = hand.filter((card) => card.name === 'Ace').length
+
+  while (score > 21 && aces > 0) {
+    score -= 10
+    aces--
+  }
+  return score
+}
+// this will loop through until the hand has no aces and will adjust the score depending if the player busts or not.*if the total value of the deck is larger than 21 it will count the aces as 1 and if not it will count it ast 11*
+
+// function to creat the card image
+const createCardImg = (card, hidden = false) => {
+  const img = document.createElement('img')
+  img.src = hidden ? 'images/card_back.png' : card.image
+  img.className = 'card'
+  img.alt = `${card.name} of ${card.suit}`
+  return img
 }
 
 // This function lets the player Hits
@@ -286,7 +286,6 @@ const hit = () => {
   }
   renderGame()
 }
-
 // this function lets the player stand and will make the dealer draw until score is =>17 and will determine the winner
 const stand = () => {
   if (gameOver) return
@@ -294,23 +293,27 @@ const stand = () => {
   gameOver = true
   canHit = false
 
+  // Dealer draws until score >= 17
   while (calcScore(dealerHand) < 17) {
     dealerHand.push(currentDeck.pop())
   }
 
+  // Determine winner
   const playerScore = calcScore(playerHand)
   const dealerScore = calcScore(dealerHand)
 
-  elements.message.textContent =
-    playerScore > 21
-      ? 'You busted! Dealer wins'
-      : dealerScore > 21
-      ? 'Dealer busted! You win!'
-      : playerScore === dealerScore
-      ? "Push! It'suit a tie!"
-      : playerScore > dealerScore
-      ? 'You win!'
-      : 'You lose!'
+  if (elements.message) {
+    elements.message.textContent =
+      playerScore > 21
+        ? 'You busted! Dealer wins'
+        : dealerScore > 21
+        ? 'Dealer busted! You win!'
+        : playerScore === dealerScore
+        ? "Push! It's a tie!"
+        : playerScore > dealerScore
+        ? 'You win!'
+        : 'You lose!'
+  }
 
   renderGame()
 }
