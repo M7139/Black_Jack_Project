@@ -8,7 +8,12 @@ const deck = [
     value: 11,
     image: 'images/ace_of_diamonds.png'
   },
-  { name: 'Ace', suit: 'Spades', value: 11, image: 'images/ace_of_spades2.png' },
+  {
+    name: 'Ace',
+    suit: 'Spades',
+    value: 11,
+    image: 'images/ace_of_spades2.png'
+  },
 
   { name: '2', suit: 'Hearts', value: 2, image: 'images/2_of_hearts.png' },
   { name: '2', suit: 'Clubs', value: 2, image: 'images/2_of_clubs.png' },
@@ -147,7 +152,7 @@ const deck = [
     name: 'King',
     suit: 'spades',
     value: 10,
-    image: 'images/King_of_spades2.png'
+    image: 'images/king_of_spades2.png'
   },
 
   {
@@ -192,7 +197,6 @@ const elements = {
   hitBtn: document.getElementById('hit'),
   standBtn: document.getElementById('stay'),
   restartBtn: document.getElementById('restart')
-
 }
 
 // function to initialize the game
@@ -201,7 +205,6 @@ window.onload = function () {
   elements.hitBtn.addEventListener('click', hit)
   elements.standBtn.addEventListener('click', stand)
   elements.restartBtn.addEventListener('click', startGame)
-
 
   // call start game method
   startGame()
@@ -231,11 +234,11 @@ const renderGame = () => {
   elements.playerCards.innerHTML = ''
 
   // Render dealer cards
-   dealerHand.forEach((card,index) => {
+  dealerHand.forEach((card, index) => {
     // only hide the first card from the dealer hand if the game is not over
-    isHidden =  !gameOver && index === 0
+    isHidden = !gameOver && index === 0
     // append image and pass isHidden value
-    elements.dealerCards.appendChild(createCardImg(card,isHidden))
+    elements.dealerCards.appendChild(createCardImg(card, isHidden))
   })
 
   // Render player cards
